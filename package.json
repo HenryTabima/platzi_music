@@ -1,0 +1,8 @@
+{
+  "name": "platzi_music",
+  "version": "0.1.0",
+  "description": "Mi version de platzi music con react",
+  "repository": "https://github.com/HenryTabima/platzi_music.git",
+  "author": "Henry Tabima Giraldo",
+  "license": "MIT"
+}
