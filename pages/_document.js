@@ -17,7 +17,6 @@ class PlatziMusic extends Document {
       />
     )
     return { ...page, styles}
-    )
   }
 
   render() {
@@ -32,10 +31,10 @@ class PlatziMusic extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
           <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
         </Head>
-        <Body>
+        <body>
           <Main/>
           <NextScript/>
-        </Body>
+        </body>
       </html>
     )
   }
