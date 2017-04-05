@@ -35,6 +35,7 @@ const Button = styled.button`
   font-weight: bold;
   color: white;
   box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
   font-size: 1rem;
   font-family: 'Quicksand';
   @media (max-width: 1024px) {
