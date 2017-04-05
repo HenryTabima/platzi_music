@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'react-styled-flexboxgrid'
 import FooterItem from './FooterItem'
-import items from '../static/footer.json'
+import items from '../lib/footer.json'
 
 function Footer() {
   return (

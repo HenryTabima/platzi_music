@@ -21,3 +21,5 @@ function FooterItem(props) {
     </Item>
   )
 }
+
+export default FooterItem
