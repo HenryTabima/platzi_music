@@ -5,7 +5,7 @@ const Subtitle = styled.div`
   font-size: 18px;
   margin: 24px 0 60px;
   color: white;
-  display: ${props=>props.theme.hero.subtitleDisplay}
+  display: ${props=>props.theme.hero.subtitle.display};
 `;
 
 function Logo(props) {

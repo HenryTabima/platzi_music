@@ -17,6 +17,7 @@ const Background = styled.div`
 const Gradient = styled.div`
   background: linear-gradient(to left, ${props=>props.theme.color.primary}, ${props=>props.theme.color.secondary});
   padding: ${props=>props.theme.hero.padding}
+  transition: padding 0.4s;
 `
 const GridHero = styled(Grid)`
   text-align: center;
