@@ -22,14 +22,14 @@ const GridHero = styled(Grid)`
   text-align: center;
 `
 
-function Hero() {
+function Hero(props) {
   return (
     <Background>
       <Gradient>
         <GridHero>
           <Logo/>
           <Title/>
-          <Searcher/>
+          <Searcher onSubmit={props.onSubmit}/>
         </GridHero>
       </Gradient>
     </Background>

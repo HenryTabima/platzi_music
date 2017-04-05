@@ -21,14 +21,14 @@ class HomePage extends Component {
     event.preventDefault()
     const form = event.target
     const value = form.elements.buscar.value
-    Router.push(`/results?query=${value}`)
+    Router.push(`/results?q=${value}`)
   }
 
   render() {
     return (
       <ThemeProvider theme={this.state.loading ? searchTheme : indexTheme}>
         <div>
-          <Hero/>
+          <Hero onSubmit={this.handleSubmit}/>
           <Grid>
             <Footer/>
           </Grid>
