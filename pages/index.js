@@ -30,7 +30,11 @@ class HomePage extends Component {
         <div>
           <Hero onSubmit={this.handleSubmit}/>
           <Grid>
-            <Footer/>
+            {
+              this.state.searching
+              ? <Loading />
+              : <Footer/>
+            }
           </Grid>
         </div>
       </ThemeProvider>

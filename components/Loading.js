@@ -42,7 +42,7 @@ const Item = styled.div`
 `
 
 function Loading() {
-  const elements = new Array(10).fill({});
+  const elements = new Array(6).fill({});
   return (
     <Background>
       {elements.map(item => (
