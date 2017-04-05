@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Router from 'next/router'
 import { Grid } from 'react-styled-flexboxgrid'
 import { ThemeProvider } from 'styled-components'
 import { indexTheme, searchTheme } from '../lib/themes.js'
