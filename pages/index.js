@@ -11,12 +11,12 @@ import Loading from '../components/Loading'
 class HomePage extends Component {
 
   state = {
-    loading: false,
+    searching: false,
   }
 
   handleSubmit = (event) => {
     this.setState({
-      loading: true
+      searching: true
     })
     event.preventDefault()
     const form = event.target
@@ -26,7 +26,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={this.state.loading ? searchTheme : indexTheme}>
+      <ThemeProvider theme={this.state.searching ? searchTheme : indexTheme}>
         <div>
           <Hero onSubmit={this.handleSubmit}/>
           <Grid>
