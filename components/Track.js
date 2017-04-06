@@ -34,9 +34,19 @@ const Time = styled.div`
 `
 
 class Track extends Component {
+
+  constructor (props){
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(evento) {
+    console.log(`Diste click sobre la cancion "${this.props.name}"`);
+  }
+
   render () {
     return (
-      <TrackItem xs={12}>
+      <TrackItem xs={12} onClick={this.handleClick}>
         <Row middle='xs'>
           <Col xs={12} sm={5}>
             <Album>
