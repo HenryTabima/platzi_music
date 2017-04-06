@@ -19,7 +19,6 @@ class ResultsPage extends Component {
       const URL = `https://api.spotify.com/v1/search/?q=${query.query}&type=artist,album,track`
       const response = await fetch(URL)
       const data = await response.json()
-      console.log(data);
       return data
     } catch (error) {
       throw error
@@ -51,7 +50,7 @@ class ResultsPage extends Component {
             {
               this.state.searching
               ? <Loading/>
-              : <Results/>
+              : <Results { ...this.props }/>
             }
           </Grid>
         </div>
