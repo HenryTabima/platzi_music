@@ -46,7 +46,7 @@ class Album extends Component {
 
   render() {
     return (
-      <Col xs={12} sm={3}>
+      <Col xs={6} sm={3}>
         <Item onClick={this.handleClick}>
           <Thumb src={this.props.images[0].url} />
           <Title>{this.props.name}</Title>
