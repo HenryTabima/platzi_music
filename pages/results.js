@@ -6,6 +6,7 @@ import { Grid } from 'react-styled-flexboxgrid'
 import { searchTheme } from '../lib/themes'
 import Hero from '../components/Hero'
 import Loading from '../components/Loading'
+import Results from '../components/Results'
 
 class ResultsPage extends Component {
 
@@ -50,7 +51,7 @@ class ResultsPage extends Component {
             {
               this.state.searching
               ? <Loading/>
-              : <div>{this.props.artists.items[0].name}</div>
+              : <Results/>
             }
           </Grid>
         </div>
