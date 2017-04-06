@@ -42,17 +42,15 @@ const Item = styled.div`
 `
 
 function Loading() {
-  const elements = new Array(6).fill({});
   return (
     <Background>
-      {elements.map(item => (
-        <Item>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </Item>
-      ))}
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><span></span><span></span><span></span><span></span></Item>
     </Background>
   )
 }
