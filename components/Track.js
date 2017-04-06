@@ -20,6 +20,9 @@ const Album = styled.div`
   display: flex;
   align-items: center;
   color ${props=>props.theme.color.grayB};
+  img {
+    min-width: 70px;
+  }
   span {
     margin-left: 1em;
     display: inline-block;
