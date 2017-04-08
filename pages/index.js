@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
-import whithRedux from 'next-redux-wrapper'
+import withRedux from 'next-redux-wrapper'
 import makeStore from '../lib/makeStore'
 import { Grid } from 'react-styled-flexboxgrid'
 import { ThemeProvider } from 'styled-components'
