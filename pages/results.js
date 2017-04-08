@@ -4,6 +4,8 @@ import Router from 'next/router'
 import { ThemeProvider } from 'styled-components'
 import { Grid } from 'react-styled-flexboxgrid'
 import { searchTheme } from '../lib/themes'
+import whithRedux from 'next-redux-wrapper'
+import makeStore from '../lib/makeStore'
 import Hero from '../components/Hero'
 import Loading from '../components/Loading'
 import Results from '../components/Results'
@@ -60,4 +62,5 @@ class ResultsPage extends Component {
 
 }
 
-export default ResultsPage
+
+export default withRedux(makeStore)(ResultsPage)

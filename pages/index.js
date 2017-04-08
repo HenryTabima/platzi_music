@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
+import whithRedux from 'next-redux-wrapper'
+import makeStore from '../lib/makeStore'
 import { Grid } from 'react-styled-flexboxgrid'
 import { ThemeProvider } from 'styled-components'
 import { indexTheme, searchTheme } from '../lib/themes.js'
@@ -43,4 +45,4 @@ class HomePage extends Component {
 
 }
 
-export default HomePage
+export default withRedux(makeStore)(HomePage)
