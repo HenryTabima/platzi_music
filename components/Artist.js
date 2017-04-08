@@ -4,11 +4,6 @@ import styled from 'styled-components'
 
 const Item = styled.div`
   margin-bottom: 1em;
-  cursor: pointer;
-  &:hover {
-    & h4 {
-      text-decoration: underline;
-    }
   }
 `
 
