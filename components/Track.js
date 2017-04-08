@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Row, Col } from 'react-styled-flexboxgrid'
 import { formattedTime } from '../lib/utils'
@@ -75,4 +76,4 @@ class Track extends Component {
   }
 }
 
-export default Track
+export default connect(null)(Track)

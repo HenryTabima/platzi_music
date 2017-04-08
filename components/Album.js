@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
 
@@ -57,4 +58,4 @@ class Album extends Component {
   }
 }
 
-export default Album
+export default connect(null)(Album)
