@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import { connect } from 'react-redux'
 import { formattedTime } from '../lib/utils'
+import AlbumTrack from './AlbumTrack'
 import PlayerAlbum from './PlayerAlbum'
 
 const bounceIn = keyframes`
@@ -154,7 +155,7 @@ class Player extends Component {
   }
 
   handlePrevTrack = () => {
-    let currentTrack = this.props.currentTrack + 1
+    let currentTrack = this.props.currentTrack - 1
     if (currentTrack < 0) {
       currentTrack = this.props.playlist.length - 1
     }
@@ -238,6 +239,19 @@ class Player extends Component {
               </PlayerUI>
             </Col>
           </Row>
+          {(this.props.playlist.length > 1 && this.state.expanded) &&
+            <Row key="album-tracks">
+              {this.props.playlist.map((item, index) => (
+                <Col xs={12} mdOffset={5} md={7} key={item.id}>
+                  <AlbumTrack
+                    {...item}
+                    number={index + 1}
+                    active={this.props.currentTrack === index}
+                  />
+                </Col>
+              ))}
+            </Row>
+          }
         </PlayerGrid>
       </Wrapper>
     )
@@ -253,9 +267,14 @@ function mapStateToProps(state) {
 }
 
 Player.propTypes = {
-  currentTrack: PropTypes.number.isRequired,
-  playlist: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentTrack: PropTypes.number,
+  playlist: PropTypes.arrayOf(PropTypes.object),
   dispatch: PropTypes.func.isRequired,
+}
+
+Player.defaultProps = {
+  playlist: [],
+  currentTrack: 0,
 }
 
 export default connect(mapStateToProps)(Player)
