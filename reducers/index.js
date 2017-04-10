@@ -1,12 +1,15 @@
 // @flow
-function reducer(state: Object, action: Object) {
+// flow-disable-next-line
+import type { fromJS as Immut } from 'immutable'
+
+function reducer(state: Immut, action: { type: string, payload: any }) {
   switch (action.type) {
     case 'SET_PLAYLIST':
-      return Object.assign({}, state, { playlist: action.payload.playlist })
+      return state.set('playlist', action.payload.playlist)
     case 'SET_CURRENT_TRACK':
-      return Object.assign({}, state, { currentTrack: action.payload.index })
+      return state.set('currentTrack', action.payload.index)
     case 'SET_ALBUM_DATA':
-      return Object.assign({}, state, { album: action.payload.data })
+      return state.set('album', action.payload.data)
     default:
       return state
   }
