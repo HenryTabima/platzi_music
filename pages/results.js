@@ -9,6 +9,7 @@ import makeStore from '../lib/makeStore'
 import Hero from '../components/Hero'
 import Loading from '../components/Loading'
 import Results from '../components/Results'
+import Player from '../components/Player'
 
 class ResultsPage extends Component {
 
@@ -47,6 +48,7 @@ class ResultsPage extends Component {
     return (
       <ThemeProvider theme={searchTheme}>
         <div>
+          <Player />
           <Hero onSubmit={this.handleSubmit} />
           <Grid>
             {
