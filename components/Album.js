@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+/* eslint-disable no-console */
+
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
@@ -11,37 +13,37 @@ const Item = styled.div`
       text-decoration: underline;
     }
   }
-`;
+`
 
 const Thumb = styled.img`
   /*width: 155px;*/
   max-width: 100%;
   width: 100%;
   height: auto;
-`;
+`
 
 const Title = styled.h4`
   font-family: ${props => props.theme.font};
   font-size: 1rem;
   font-weight: bold;
   margin: .5em 0;
-`;
+`
 
 const Text = styled.p`
   color: #4b4e5a;
   font-family: ${props => props.theme.font};
   font-size: .9rem;
   margin: 0;
-`;
+`
 
 class Album extends Component {
 
-  constructor (props){
+  constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(evento) {
+  handleClick() {
     console.log(`Diste click sobre el album "${this.props.name}"`)
   }
 
@@ -56,6 +58,16 @@ class Album extends Component {
       </Col>
     )
   }
+}
+
+Album.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  })).isRequired,
+  artists: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  })).isRequired,
+  name: PropTypes.string.isRequired,
 }
 
 export default connect(null)(Album)

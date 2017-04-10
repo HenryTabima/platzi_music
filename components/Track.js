@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+/* eslint-disable no-console */
+
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Row, Col } from 'react-styled-flexboxgrid'
@@ -20,7 +22,7 @@ const Album = styled.div`
   font-weight: bold;
   display: flex;
   align-items: center;
-  color ${props=>props.theme.color.grayB};
+  color ${props => props.theme.color.grayB};
   img {
     min-width: 70px;
   }
@@ -36,19 +38,14 @@ const Time = styled.div`
 
 class Track extends Component {
 
-  constructor (props){
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
+  handleClick = () => {
+    console.log(`Diste click sobre la cancion "${this.props.name}"`)
   }
 
-  handleClick(evento) {
-    console.log(`Diste click sobre la cancion "${this.props.name}"`);
-  }
-
-  render () {
+  render() {
     return (
       <TrackItem xs={12} onClick={this.handleClick}>
-        <Row middle='xs'>
+        <Row middle="xs">
           <Col xs={12} sm={5}>
             <Album>
               <img
@@ -74,6 +71,17 @@ class Track extends Component {
       </TrackItem>
     )
   }
+}
+
+Track.propTypes = {
+  name: PropTypes.string.isRequired,
+  album: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    })).isRequired,
+  }).isRequired,
+  duration_ms: PropTypes.number.isRequired,
 }
 
 export default connect(null)(Track)

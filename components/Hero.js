@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { Grid } from 'react-styled-flexboxgrid'
 import Searcher from './Searcher'
@@ -15,8 +15,8 @@ const Background = styled.div`
   }
 `
 const Gradient = styled.div`
-  background: linear-gradient(to left, ${props=>props.theme.color.primary}, ${props=>props.theme.color.secondary});
-  padding: ${props=>props.theme.hero.padding}
+  background: linear-gradient(to left, ${props => props.theme.color.primary}, ${props => props.theme.color.secondary});
+  padding: ${props => props.theme.hero.padding}
   transition: padding 0.4s;
 `
 const GridHero = styled(Grid)`
@@ -28,13 +28,17 @@ function Hero(props) {
     <Background>
       <Gradient>
         <GridHero>
-          <Logo/>
-          <Title/>
-          <Searcher onSubmit={props.onSubmit}/>
+          <Logo />
+          <Title />
+          <Searcher onSubmit={props.onSubmit} />
         </GridHero>
       </Gradient>
     </Background>
   )
+}
+
+Hero.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 }
 
 export default Hero

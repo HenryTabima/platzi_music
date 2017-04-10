@@ -7,13 +7,13 @@ function Footer() {
   return (
     <Row center="xs">
       <Col xs={12} sm={4}>
-        <FooterItem item={items.item1}/>
+        <FooterItem item={items.item1} />
       </Col>
       <Col xs={12} sm={4}>
-        <FooterItem item={items.item2}/>
+        <FooterItem item={items.item2} />
       </Col>
       <Col xs={12} sm={4}>
-        <FooterItem item={items.item3}/>
+        <FooterItem item={items.item3} />
       </Col>
     </Row>
   )

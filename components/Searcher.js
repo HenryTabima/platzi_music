@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { PropTypes } from 'react'
+import styled from 'styled-components'
 
 const DefaultStyles = `
   outline: 0;
   border: none;
   border-radius: 4px;
-`;
+`
 
 const Form = styled.form`
   display: flex;
@@ -14,7 +14,7 @@ const Form = styled.form`
   @media (max-width: 1024px) {
     flex-direction: column;
   }
-`;
+`
 
 const InputSearcher = styled.input`
   flex: 1;
@@ -25,7 +25,7 @@ const InputSearcher = styled.input`
   @media (max-width: 1024px) {
     margin-right: 0;
   }
-`;
+`
 
 const Button = styled.button`
   ${DefaultStyles}
@@ -41,11 +41,11 @@ const Button = styled.button`
   @media (max-width: 1024px) {
     margin-top: 1rem;
   }
-`;
+`
 
 // es invocado desde Hero
 function Searcher(props) {
-  return(
+  return (
     <Form onSubmit={props.onSubmit}>
       <InputSearcher
         name="buscar"
@@ -54,7 +54,11 @@ function Searcher(props) {
       />
       <Button>Buscar</Button>
     </Form>
-  );
+  )
 }
 
-export default Searcher;
+Searcher.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+}
+
+export default Searcher

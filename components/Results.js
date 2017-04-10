@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import SectionType from './SectionType'
 import Tracks from './Track'
 import Albums from './Album'
 import Artists from './Artist'
 
 function Results(props) {
-  return(
+  return (
     <section>
       <SectionType title="Canciones" items={props.tracks.items}>
-        { (props) => <Tracks key={props.id} {...props}/> }
+        { childProps => <Tracks key={childProps.id} {...childProps} /> }
       </SectionType>
       <SectionType title="Álbumes" items={props.albums.items}>
-        { (props) => <Albums key={props.id} {...props}/> }
+        { childProps => <Albums key={childProps.id} {...childProps} /> }
       </SectionType>
       <SectionType title="Artistas" items={props.artists.items}>
-        { (props) => <Artists key={props.id} {...props}/> }
+        { childProps => <Artists key={childProps.id} {...childProps} /> }
       </SectionType>
     </section>
   )
+}
+
+Results.propTypes = {
+  tracks: PropTypes.shape({
+    items: PropTypes.array.isRequired,
+  }).isRequired,
+  albums: PropTypes.shape({
+    items: PropTypes.array.isRequired,
+  }).isRequired,
+  artists: PropTypes.shape({
+    items: PropTypes.array.isRequired,
+  }).isRequired,
 }
 
 export default Results

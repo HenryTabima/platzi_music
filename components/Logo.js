@@ -1,31 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const DefaultStyles = `
   font-family: 'Quicksand';
-`;
+`
 
 const LogoStyles = `
   font-weight: bold;
   font-size: 3rem;
   ${DefaultStyles}
-`;
+`
 
 const Platzi = styled.span`
   color: white;
   ${LogoStyles}
-`;
+`
 
 const Music = styled.span`
   color: #bfafd9;
   ${LogoStyles}
-`;
+`
 
 const Title = styled.div`
   margin-bottom: 1em;
 `
 
-function Logo(props) {
+function Logo() {
   return (
     <div>
       <Title>
@@ -33,7 +33,7 @@ function Logo(props) {
         <Music>Music</Music>
       </Title>
     </div>
-  );
+  )
 }
 
-export default Logo;
+export default Logo

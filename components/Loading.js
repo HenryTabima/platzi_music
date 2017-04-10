@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
 const Background = styled.div`
   padding: 1em 0;
@@ -13,7 +13,6 @@ const animation = keyframes`
   }
 `
 
-
 const Item = styled.div`
   display: flex;
   justify-content: space-around;
@@ -22,17 +21,9 @@ const Item = styled.div`
   overflow: hidden;
   background: #e9eaed;
   margin-bottom: 1em;
-  span {
-    width: 10px;
-    background: white;
-    position: relative;
-    z-index: 2
-  }
   &:after {
     content: '';
-    /*width: 100px;*/
     height: inherit;
-    background: red;
     position: absolute;
     animation: ${animation} 1s infinite;
     width: 100%;
@@ -40,19 +31,25 @@ const Item = styled.div`
     background-image: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
   }
 `
+const Bar = styled.span`
+  width: 10px;
+  background: white;
+  position: relative;
+  z-index: 2
+`
 
 function Loading() {
   return (
     <Background>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
-      <Item><span></span><span></span><span></span><span></span></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
+      <Item><Bar /><Bar /><Bar /><Bar /></Item>
     </Background>
   )
 }
 
-export default Loading;
+export default Loading

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PropTypes } from 'react'
 import { Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
 
@@ -21,28 +21,23 @@ const Title = styled.h4`
   margin: .5em 0;
 `
 
-class Artist extends Component {
+function Artist(props) {
+  if (!props.images[0]) return null
+  return (
+    <Col xs={6} sm={3}>
+      <Item>
+        <Thumb src={props.images[0].url} />
+        <Title>{props.name}</Title>
+      </Item>
+    </Col>
+  )
+}
 
-  constructor (props){
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick(evento) {
-    console.log(`Diste click sobre el Artista "${this.props.name}"`)
-  }
-
-  render() {
-    if(!this.props.images[0]) return null
-    return (
-      <Col xs={6} sm={3}>
-        <Item onClick={this.handleClick}>
-          <Thumb src={this.props.images[0].url} />
-          <Title>{this.props.name}</Title>
-        </Item>
-      </Col>
-    )
-  }
+Artist.propTypes = {
+  name: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  })).isRequired,
 }
 
 export default Artist

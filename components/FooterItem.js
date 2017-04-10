@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
 const Item = styled.div`
@@ -20,6 +20,13 @@ function FooterItem(props) {
       </p>
     </Item>
   )
+}
+
+FooterItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default FooterItem
