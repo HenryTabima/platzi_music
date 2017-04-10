@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
-
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
+import fetch from 'isomorphic-fetch'
 
 const Item = styled.div`
   margin-bottom: 1em;
@@ -36,15 +35,29 @@ const Text = styled.p`
   margin: 0;
 `
 
+async function getAlbum(url) {
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
+}
+
 class Album extends Component {
-
-  constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick() {
-    console.log(`Diste click sobre el album "${this.props.name}"`)
+  handleClick = () => {
+    const album = getAlbum(this.props.href)
+    this.props.dispatch({
+      type: 'SET_ALBUM_DATA',
+      payload: {
+        data: this.props,
+      },
+    })
+    album.then((data) => {
+      this.props.dispatch({
+        type: 'SET_PLAYLIST',
+        payload: {
+          playlist: data.tracks.items,
+        },
+      })
+    })
   }
 
   render() {
@@ -68,6 +81,8 @@ Album.propTypes = {
     name: PropTypes.string.isRequired,
   })).isRequired,
   name: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(null)(Album)

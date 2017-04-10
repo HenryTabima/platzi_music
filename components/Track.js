@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
@@ -39,7 +37,24 @@ const Time = styled.div`
 class Track extends Component {
 
   handleClick = () => {
-    console.log(`Diste click sobre la cancion "${this.props.name}"`)
+    this.props.dispatch({
+      type: 'SET_PLAYLIST',
+      payload: {
+        playlist: [{ ...this.props }],
+      },
+    })
+    this.props.dispatch({
+      type: 'SET_CURRENT_TRACK',
+      payload: {
+        index: 0,
+      },
+    })
+    this.props.dispatch({
+      type: 'SET_ALBUM_DATA',
+      payload: {
+        data: this.props.album,
+      },
+    })
   }
 
   render() {
@@ -82,6 +97,7 @@ Track.propTypes = {
     })).isRequired,
   }).isRequired,
   duration_ms: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(null)(Track)
