@@ -3,18 +3,14 @@ import fetch from 'isomorphic-fetch'
 import Router from 'next/router'
 import { ThemeProvider } from 'styled-components'
 import { Grid } from 'react-styled-flexboxgrid'
-import { searchTheme } from '../lib/themes'
 import withRedux from 'next-redux-wrapper'
+import { searchTheme } from '../lib/themes'
 import makeStore from '../lib/makeStore'
 import Hero from '../components/Hero'
 import Loading from '../components/Loading'
 import Results from '../components/Results'
 
 class ResultsPage extends Component {
-
-  state = {
-    searching: false
-  }
 
   static async getInitialProps({ query }) {
     try {
@@ -27,9 +23,19 @@ class ResultsPage extends Component {
     }
   }
 
+  state = {
+    searching: false,
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      searching: false,
+    })
+  }
+
   handleSubmit = (event) => {
     this.setState({
-      searching: true
+      searching: true,
     })
     event.preventDefault()
     const form = event.target
@@ -37,22 +43,16 @@ class ResultsPage extends Component {
     Router.push(`/results?query=${value}`)
   }
 
-  componentWillReceiveProps() {
-    this.setState({
-      searching: false
-    })
-  }
-
   render() {
     return (
       <ThemeProvider theme={searchTheme}>
         <div>
-          <Hero onSubmit={this.handleSubmit}/>
+          <Hero onSubmit={this.handleSubmit} />
           <Grid>
             {
               this.state.searching
-              ? <Loading/>
-              : <Results { ...this.props }/>
+              ? <Loading />
+              : <Results {...this.props} />
             }
           </Grid>
         </div>

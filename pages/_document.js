@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Document, { Main, NextScript, Head } from 'next/document'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
 
@@ -12,28 +12,28 @@ class PlatziMusic extends Document {
           __html: styleSheet
           .rules()
           .map(rule => rule.cssText)
-          .join('\n')
+          .join('\n'),
         }}
       />
     )
-    return { ...page, styles}
+    return { ...page, styles }
   }
 
   render() {
     return (
-      <html>
+      <html lang="es">
         <Head>
           <title>PlatziMusic</title>
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
             rel="stylesheet"
           />
-          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-          <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+          <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
         </Head>
         <body>
-          <Main/>
-          <NextScript/>
+          <Main />
+          <NextScript />
         </body>
       </html>
     )

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Router from 'next/router'
 import withRedux from 'next-redux-wrapper'
-import makeStore from '../lib/makeStore'
 import { Grid } from 'react-styled-flexboxgrid'
 import { ThemeProvider } from 'styled-components'
-import { indexTheme, searchTheme } from '../lib/themes.js'
+import makeStore from '../lib/makeStore'
+import { indexTheme, searchTheme } from '../lib/themes'
 import '../lib/global'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
@@ -18,7 +18,7 @@ class HomePage extends Component {
 
   handleSubmit = (event) => {
     this.setState({
-      searching: true
+      searching: true,
     })
     event.preventDefault()
     const form = event.target
@@ -30,12 +30,12 @@ class HomePage extends Component {
     return (
       <ThemeProvider theme={this.state.searching ? searchTheme : indexTheme}>
         <div>
-          <Hero onSubmit={this.handleSubmit}/>
+          <Hero onSubmit={this.handleSubmit} />
           <Grid>
             {
               this.state.searching
               ? <Loading />
-              : <Footer/>
+              : <Footer />
             }
           </Grid>
         </div>
