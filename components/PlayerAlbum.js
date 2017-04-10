@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 const AlbumUI = styled.div`
-  padding: 1em 0L
+  padding: 1em 0;
   display: flex;
 `
 
