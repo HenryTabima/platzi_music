@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+
 import React from 'react'
 import Document, { Main, NextScript, Head } from 'next/document'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
