@@ -1,4 +1,4 @@
-# Platzi_Music
+# Reacty_Music
 Esta es mi versión personal del proyecto realizado en el diplomado de React dictado por [Platzi](https://platzi.com)
 
 ## Descripción

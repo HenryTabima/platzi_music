@@ -11,7 +11,7 @@ const LogoStyles = `
   ${DefaultStyles}
 `
 
-const Platzi = styled.span`
+const Reacty = styled.span`
   color: white;
   ${LogoStyles}
 `
@@ -29,7 +29,7 @@ function Logo() {
   return (
     <div>
       <Title>
-        <Platzi>Platzi</Platzi>
+        <Reacty>Reacty</Reacty>
         <Music>Music</Music>
       </Title>
     </div>
